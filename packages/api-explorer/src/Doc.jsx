@@ -307,13 +307,7 @@ class Doc extends React.Component {
     const oas = this.oas;
 
     const renderEndpoint = () => {
-      if (this.props.appearance.splitReferenceDocs) return this.renderEndpoint();
-
-      return (
-        <Waypoint onEnter={this.waypointEntered} fireOnRapidScroll={false} bottomOffset="-1%">
-          {this.state.showEndpoint && this.renderEndpoint()}
-        </Waypoint>
-      );
+      return this.renderEndpoint();
     };
 
     return (
