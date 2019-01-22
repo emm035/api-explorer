@@ -21,4 +21,8 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.json', '.jsx'],
   },
+  externals: {
+    react: 'react',
+    'prop-types': 'prop-types'
+  },
 };
