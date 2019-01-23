@@ -89,11 +89,12 @@ class ApiExplorer extends React.Component {
       <div className={`is-lang-${this.state.language}`}>
         <div
           id="hub-reference"
-          className={`content-body hub-reference-sticky hub-reference-theme-${this.props.appearance
-            .referenceLayout}`}
+          className={`content-body hub-reference-sticky hub-reference-theme-${
+            this.props.appearance.referenceLayout
+          }`}
         >
           {this.props.docs.map(doc => (
-            <VariablesContext.Provider value={this.props.variables}>
+            <VariablesContext.Provider value={this.props.variables} key={`doc-${doc._id}`}>
               <OauthContext.Provider value={this.props.oauth}>
                 <GlossaryTermsContext.Provider value={this.props.glossaryTerms}>
                   <SelectedAppContext.Provider value={this.state.selectedApp}>
