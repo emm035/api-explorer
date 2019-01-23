@@ -4,7 +4,6 @@ const fetchHar = require('fetch-har');
 const oasToHar = require('./lib/oas-to-har');
 const isAuthReady = require('./lib/is-auth-ready');
 const extensions = require('@readme/oas-extensions');
-const Waypoint = require('react-waypoint');
 
 const { Fragment } = React;
 
@@ -38,7 +37,6 @@ class Doc extends React.Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.toggleAuth = this.toggleAuth.bind(this);
     this.hideResults = this.hideResults.bind(this);
-    this.waypointEntered = this.waypointEntered.bind(this);
     this.Params = createParams(this.oas);
 
     this.setApiKey();
@@ -110,10 +108,6 @@ class Doc extends React.Component {
 
   hideResults() {
     this.setState({ result: null });
-  }
-
-  waypointEntered() {
-    this.setState({ showEndpoint: true });
   }
 
   // TODO: I couldn't figure out why this existed
@@ -306,10 +300,6 @@ class Doc extends React.Component {
     const { doc } = this.props;
     const oas = this.oas;
 
-    const renderEndpoint = () => {
-      return this.renderEndpoint();
-    };
-
     return (
       <div className="hub-reference" id={`page-${doc.slug}`}>
         {
@@ -334,7 +324,7 @@ class Doc extends React.Component {
           <div className="hub-reference-right">&nbsp;</div>
         </div>
 
-        {renderEndpoint()}
+        {this.renderEndpoint()}
 
         {
           // TODO maybe we dont need to do this with a hidden input now
